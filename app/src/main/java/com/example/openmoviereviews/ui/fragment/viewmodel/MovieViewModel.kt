@@ -17,10 +17,12 @@ import kotlinx.coroutines.launch
 const val TAG: String = "MainViewModel"
 
 @HiltViewModel
-class MovieDetailViewModel @Inject constructor(
-  private val repository: MovieRepository,
-  private val adapter: CommonAdapter,
-  private val appFactory: AppFactory
+class MovieViewModel
+@Inject
+constructor(
+    private val repository: MovieRepository,
+    private val adapter: CommonAdapter,
+    private val appFactory: AppFactory
 ) : BaseViewModel() {
 
   private val movieAdapterObservableField: ObservableField<CommonAdapter> = ObservableField()
@@ -28,6 +30,7 @@ class MovieDetailViewModel @Inject constructor(
 
   val showErrorMessage: SingleLiveEvent<String?> by lazy { SingleLiveEvent() }
   val movieItemClicked: SingleLiveEvent<MovieItem> by lazy { SingleLiveEvent() }
+  private var movieItems: List<MovieItem> = listOf()
 
   init {
     fetchMovieData()
@@ -40,6 +43,7 @@ class MovieDetailViewModel @Inject constructor(
           .getMoviesData()
           .catch { e -> handleException(TAG, e, loadingObservableField) }
           .collect {
+            movieItems = it.movieItems
             setMovieAdapterData(it.movieItems)
             loadingObservableField.set(false)
           }
@@ -50,6 +54,11 @@ class MovieDetailViewModel @Inject constructor(
     val viewModels = characterImages.map { appFactory.createMovieAdapter(it, ::itemClicked) }
     adapter.setDataBoundAdapter(viewModels)
     movieAdapterObservableField.set(adapter)
+  }
+
+  fun sortMovieWithRating() {
+    setMovieAdapterData(
+        movieItems.asSequence().filter { movieItem -> movieItem.mpaaRating.isNotEmpty() }.toList())
   }
 
   private fun itemClicked(movieItem: MovieItem) {

@@ -4,18 +4,18 @@ import android.view.View
 import com.example.openmoviereviews.R
 import com.example.openmoviereviews.data.MovieItem
 import com.example.openmoviereviews.ui.adapter.ViewType.MOVIE_ITEM
-import com.example.openmoviereviews.ui.viewholder.CharacterViewHolder
+import com.example.openmoviereviews.ui.viewholder.MovieViewHolder
 
 class MovieAdapter(
     private val movieItem: MovieItem,
     private val listener: (mi: MovieItem) -> Unit
-) : BaseDataBoundAdapter<CharacterViewHolder>(R.layout.movie_view_layout) {
+) : BaseDataBoundAdapter<MovieViewHolder>(R.layout.movie_view_layout) {
 
-  override fun createItemViewHolder(view: View): CharacterViewHolder {
-    return CharacterViewHolder(view)
+  override fun createItemViewHolder(view: View): MovieViewHolder {
+    return MovieViewHolder(view)
   }
 
-  override fun bindItemViewHolder(holder: CharacterViewHolder) {
+  override fun bindItemViewHolder(holder: MovieViewHolder) {
     holder.bind(movieItem, listener)
   }
 

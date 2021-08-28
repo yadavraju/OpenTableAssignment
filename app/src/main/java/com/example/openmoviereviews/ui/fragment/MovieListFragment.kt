@@ -11,17 +11,13 @@ import com.example.openmoviereviews.api.listener.OpenDetailFragmentListener
 import com.example.openmoviereviews.base.BaseFragment
 import com.example.openmoviereviews.data.MovieItem
 import com.example.openmoviereviews.databinding.FragmentMovieListBinding
-import com.example.openmoviereviews.ui.fragment.viewmodel.MovieDetailViewModel
+import com.example.openmoviereviews.ui.fragment.viewmodel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MovieListFragment : BaseFragment() {
 
-  companion object {
-    @JvmStatic fun newInstance() = MovieListFragment()
-  }
-
-  private val viewModel: MovieDetailViewModel by viewModels()
+  private val viewModel: MovieViewModel by viewModels()
   private var listener: OpenDetailFragmentListener? = null
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +33,7 @@ class MovieListFragment : BaseFragment() {
   ): View {
     val binding = FragmentMovieListBinding.inflate(LayoutInflater.from(activity), container, false)
     binding.viewModel = viewModel
+    binding.tLayout.ivFilter.setOnClickListener { viewModel.sortMovieWithRating() }
     return binding.root
   }
 
@@ -57,5 +54,9 @@ class MovieListFragment : BaseFragment() {
   override fun onDestroy() {
     super.onDestroy()
     listener = null
+  }
+
+  companion object {
+    @JvmStatic fun newInstance() = MovieListFragment()
   }
 }
