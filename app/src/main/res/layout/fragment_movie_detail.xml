@@ -59,7 +59,7 @@
       </androidx.cardview.widget.CardView>
 
       <TextView
-        android:id="@+id/tvBookTitleValue"
+        android:id="@+id/tvMovieTitleValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -87,7 +87,7 @@
         android:orientation="horizontal"
         android:padding="10dp"
         android:translationZ="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvBookTitleValue"
+        app:layout_constraintBottom_toTopOf="@+id/tvMovieTitleValue"
         app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -97,7 +97,7 @@
           app:srcCompat="@drawable/ic_baseline_star_rate_24" />
 
         <TextView
-          android:id="@+id/tvPrice"
+          android:id="@+id/tvRating"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginStart="5dp"
@@ -109,7 +109,7 @@
       </LinearLayout>
 
       <TextView
-        android:id="@+id/tvFormat"
+        android:id="@+id/tvDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -119,19 +119,19 @@
         android:text="@{@string/published_date(movieItem.publicationDate)}"
         android:textColor="@color/White_80"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvBookTitleValue"
-        app:layout_constraintTop_toBottomOf="@+id/tvBookTitleValue" />
+        app:layout_constraintStart_toStartOf="@+id/tvMovieTitleValue"
+        app:layout_constraintTop_toBottomOf="@+id/tvMovieTitleValue" />
 
       <TextView
-        android:id="@+id/tvPublishedDate"
+        android:id="@+id/tvByline"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="@{@string/byline(movieItem.byline)}"
         android:textColor="@color/colorAccent"
-        app:layout_constraintStart_toStartOf="@+id/tvFormat"
-        app:layout_constraintTop_toBottomOf="@+id/tvFormat" />
+        app:layout_constraintStart_toStartOf="@+id/tvDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
 
       <androidx.constraintlayout.widget.ConstraintLayout

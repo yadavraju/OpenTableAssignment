@@ -16,7 +16,6 @@ private const val MOVIE_ITEM = "MOVIE_ITEM"
 @AndroidEntryPoint
 class MovieDetailFragment : BaseFragment() {
 
-  private lateinit var binding: FragmentMovieDetailBinding
   private lateinit var movieItem: MovieItem
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +28,8 @@ class MovieDetailFragment : BaseFragment() {
       container: ViewGroup?,
       savedInstanceState: Bundle?
   ): View {
-    binding = FragmentMovieDetailBinding.inflate(LayoutInflater.from(activity), container, false)
+    val binding =
+        FragmentMovieDetailBinding.inflate(LayoutInflater.from(activity), container, false)
     binding.movieItem = movieItem
     return binding.root
   }
@@ -43,7 +43,7 @@ class MovieDetailFragment : BaseFragment() {
     ivPoster.bindSrcUrl(movieItem.multimedia.src)
     ivBackdrop.bindSrcUrl(movieItem.multimedia.src)
     if (movieItem.headline.length > 10) {
-      tvBookTitleValue.isSelected = true
+      tvMovieTitleValue.isSelected = true
     }
   }
 
