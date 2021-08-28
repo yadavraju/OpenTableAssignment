@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="card_space">4dp</dimen>
+  <dimen name="margin10">10dp</dimen>
+  <dimen name="margin16">16dp</dimen>
+  <dimen name="text_size24">24sp</dimen>
+  <dimen name="text_size28">28sp</dimen>
+  <dimen name="dimen32">32dp</dimen>
+  <dimen name="movie_h">180dp</dimen>
+</resources>

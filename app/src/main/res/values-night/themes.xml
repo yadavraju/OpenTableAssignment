@@ -1,0 +1,16 @@
+<resources>
+  <!-- Base application theme. -->
+  <style name="Theme.OpenMovieReviews" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!-- Primary brand color. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+
+    <item name="android:textColorPrimary">@color/White_100</item>
+    <item name="android:textColor">@color/White_100</item>
+    <item name="android:windowBackground">@color/windowBackground</item>
+
+  </style>
+
+  <style name="PopupOverlay" parent="ThemeOverlay.MaterialComponents" />
+</resources>

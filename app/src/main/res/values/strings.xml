@@ -1,0 +1,11 @@
+<resources>
+  <string name="app_name">Open Movie</string>
+  <string name="published_date">Published Date: %1$s</string>
+  <string name="byline">Byline: %1$s</string>
+  <string name="description_title">Description</string>
+  <string name="character_title">Character</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="copy_right">Copyright © 2021 The New York Times Company. All Rights Reserved.</string>
+  <string name="headline_title">Headlines</string>
+</resources>
